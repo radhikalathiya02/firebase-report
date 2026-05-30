@@ -24,4 +24,4 @@ jobs:
           echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service-account.json
 
       - name: Build and run
-        run: mvn compile exec:java -Dexec.mainClass="com.firebase.report.firebase_report.FirebaseReport"
+        run: mvn compile exec:java -Dexec.mainClass="com.firebase.report.firebase_report.FirebaseReport" -e 2>&1
