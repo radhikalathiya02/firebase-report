@@ -26,13 +26,8 @@ jobs:
         run: |
           echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service-account.json
 
-      - name: Show service account file
-        run: |
-          ls -la service-account.json
-          head -3 service-account.json
-
-      - name: Build
-        run: mvn compile -e
+      - name: Build and package
+        run: mvn clean package -DskipTests
 
       - name: Run
-        run: mvn exec:java -Dexec.mainClass="com.firebase.report.firebase_report.FirebaseReport" -e
+        run: java -cp target/firebase-report-0.0.1-SNAPSHOT.jar:target/dependency/* com.firebase.report.firebase_report.FirebaseReport
