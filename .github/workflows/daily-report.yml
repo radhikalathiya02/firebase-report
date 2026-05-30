@@ -29,5 +29,15 @@ jobs:
       - name: Build and package
         run: mvn clean package -DskipTests
 
+      - name: Check JAR contents
+        run: |
+          echo "JAR files:"
+          ls -la target/*.jar
+          echo "Classes in JAR:"
+          jar tf target/firebase-report-0.0.1-SNAPSHOT.jar | grep FirebaseReport
+          echo "Manifest:"
+          jar xf target/firebase-report-0.0.1-SNAPSHOT.jar META-INF/MANIFEST.MF
+          cat META-INF/MANIFEST.MF
+
       - name: Run
         run: java -jar target/firebase-report-0.0.1-SNAPSHOT.jar
