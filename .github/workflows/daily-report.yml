@@ -27,10 +27,13 @@ jobs:
           SERVICE_ACCOUNT: ${{ secrets.SERVICE_ACCOUNT_JSON }}
         run: |
           echo "$SERVICE_ACCOUNT" > service-account.json
+
+      - name: Verify service account
+        run: |
           echo "File size:"
           ls -la service-account.json
-          echo "First line:"
-          head -1 service-account.json
+          echo "First 50 chars:"
+          head -c 50 service-account.json
 
       - name: Build and package
         run: mvn clean package -DskipTests
