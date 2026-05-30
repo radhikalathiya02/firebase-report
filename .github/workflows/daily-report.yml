@@ -30,4 +30,4 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: Run
-        run: java -cp target/firebase-report-0.0.1-SNAPSHOT.jar:target/dependency/* com.firebase.report.firebase_report.FirebaseReport
+        run: java -jar target/firebase-report-0.0.1-SNAPSHOT.jar
