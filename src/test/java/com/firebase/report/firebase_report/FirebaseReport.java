@@ -16,8 +16,7 @@ import java.util.*;
 
 public class FirebaseReport {
 
-    static final String SERVICE_ACCOUNT_PATH =
-        "/Users/ios/eclipse-workspace/firebase-report/service-account.json";
+	static final String SERVICE_ACCOUNT_PATH = "service-account.json";
 
     public static void main(String[] args) throws Exception {
 
